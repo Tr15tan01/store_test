@@ -10,7 +10,7 @@ const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
   return (
     <Wrapper className="cart-btn-wrapper">
-      <Link t0="/cart" className="cart-btn" onClick={closeSidebar}>
+      <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
         Cart
         <span className="cart-container">
           <FaShoppingCart />
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: -10px;
     right: -16px;
-    background: var(--clr-primary-5);
+    background: var(--clr-primary-11);
     width: 16px;
     height: 16px;
     display: flex;
