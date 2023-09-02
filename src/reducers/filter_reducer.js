@@ -50,12 +50,67 @@ const filter_reducer = (state, action) => {
     }
     return { ...state, filtered_products: newProducts };
   }
+
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload;
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
+
   if (action.type === FILTER_PRODUCTS) {
-    return { ...state };
+    const { all_products } = state;
+    const { text, category, company, color, price, shipping } = state.filters;
+    let newProducts = [...all_products];
+    // filtering functionalty
+    //text
+    if (text) {
+      newProducts = newProducts.filter((product) => {
+        return product.name.toLowerCase().startsWith(text);
+      });
+    }
+    //category
+    if (category !== "all") {
+      newProducts = newProducts.filter(
+        (product) => product.category === category
+      );
+    }
+
+    //company
+    if (company !== "all") {
+      newProducts = newProducts.filter(
+        (product) => product.company === company
+      );
+    }
+
+    //color
+    if (color !== "all") {
+      newProducts = newProducts.filter((product) =>
+        product.colors.find((c) => c === color)
+      );
+    }
+
+    //price
+    newProducts = newProducts.filter((product) => product.price <= price);
+
+    //shipping
+    if (shipping) {
+      newProducts = newProducts.filter((product) => product.shipping === true);
+    }
+
+    return { ...state, filtered_products: newProducts };
+  }
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        text: "",
+        company: "all",
+        category: "all",
+        color: "all",
+        price: state.filters.max_price,
+        shipping: false,
+      },
+    };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
