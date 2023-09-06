@@ -11,6 +11,7 @@ import {
   PrivateRoute,
   ProductPage,
   SingleProductPage,
+  ProtectedRoute,
 } from "./pages";
 // import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -24,7 +25,14 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/products" element={<ProductPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <CheckoutPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/products/:id" element={<SingleProductPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

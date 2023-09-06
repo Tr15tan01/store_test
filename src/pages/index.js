@@ -5,6 +5,8 @@ import CheckoutPage from "./CheckoutPage";
 import CartPage from "./CartPage";
 import ProductPage from "./ProductsPage";
 import SingleProductPage from "./SingleProductPage";
+import PrivateRoute from "./PrivateRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 export {
   HomePage,
@@ -14,4 +16,6 @@ export {
   CartPage,
   ProductPage,
   SingleProductPage,
+  PrivateRoute,
+  ProtectedRoute,
 };
