@@ -38,6 +38,9 @@ const Wrapper = styled.div`
       margin-top: 1rem;
       margin-bottom: 3rem;
     }
+    .adit {
+      width: 2rem;
+    }
   }
 `;
 
