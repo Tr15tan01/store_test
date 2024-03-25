@@ -18,7 +18,10 @@ const AboutPage = () => {
             some text here some text here some text here some text here some
             text here some text here some text here some text here some text
             here some text here some text here some text here some text here
-            some text here
+            some text here some text here some text here some text here some
+            text here some text here some text here some text here some text
+            here some text here some text here some text here some text here
+            some text here some text here
           </p>
         </article>
       </Wrapper>
